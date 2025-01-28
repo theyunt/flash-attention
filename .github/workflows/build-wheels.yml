@@ -26,9 +26,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        pyver: ["3.9", "3.10", "3.11", "3.12"]
+        pyver: ["3.10"]
         cuda: ["12.4.1"]
-        torchver: ["2.3.1", "2.4.0", "2.5.1"]
+        torchver: ["2.5.1", "torch 2.7.0.dev20250113"]
     defaults:
       run:
         shell: pwsh
@@ -70,7 +70,7 @@ jobs:
           if (!(mamba list cuda)[-1].contains('cuda')) {sleep -s 10; mamba install -y 'cuda' $cudaVersion}
           if (!(mamba list cuda)[-1].contains('cuda')) {throw 'CUDA Toolkit failed to install!'}
           
-          python -m pip install --upgrade build setuptools wheel packaging ninja torch==${{ matrix.torchver }} psutil --extra-index-url "https://download.pytorch.org/whl/cu121"
+          python -m pip install --upgrade build setuptools wheel packaging ninja torch==${{ matrix.torchver }} psutil --extra-index-url "https://download.pytorch.org/nigtly/whl/cu124"
 
       - name: Build Wheel
         id: build-wheel

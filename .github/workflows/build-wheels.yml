@@ -28,7 +28,7 @@ jobs:
       matrix:
         pyver: ["3.10"]
         cuda: ["12.4.1"]
-        torchver: ["2.5.1", "torch 2.7.0.dev20250113"]
+        torchver: ["torch 2.7.0.dev20250113"]
     defaults:
       run:
         shell: pwsh

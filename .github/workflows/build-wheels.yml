@@ -28,7 +28,7 @@ jobs:
       matrix:
         os: ["windows-2022"]
         pyver: ["3.10"]
-        cuda: ["12.4.1", "12.8.1"]
+        cuda: ["12.8.1"]
         torchver: ["2.9.0"]
         exclude:
           - torchver: '2.5.1'
